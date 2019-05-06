@@ -8,6 +8,9 @@ import { HomeComponent } from './home/home.component';
 import { NoleggioComponent } from './noleggio/noleggio.component';
 import { SegnalaComponent } from './segnala/segnala.component';
 
+
+import { CookieService } from 'ngx-cookie-service'; //Cookie module
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,7 @@ import { SegnalaComponent } from './segnala/segnala.component';
   imports: [
     BrowserModule, NgbModule, HttpClientModule
   ],
-  providers: [],
+  providers: [ CookieService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

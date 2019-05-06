@@ -1,3 +1,7 @@
-<p>
-  segnala works!
-</p>
+<form>
+  <div>
+    <input type="number" placeholder="Inserisci numero monopattino o scooter" #Num>
+    <textarea type="text" placeholder="Descrizione problema" #Desc></textarea>
+    <button (click)="segnala(Num, Desc)"></button>
+  </div>
+</form>
