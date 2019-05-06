@@ -9,7 +9,11 @@ import { NoleggioComponent } from './noleggio/noleggio.component';
 import { SegnalaComponent } from './segnala/segnala.component';
 
 
-import { CookieService } from 'ngx-cookie-service'; //Cookie module
+import { CookieService } from 'ngx-cookie-service'; //Cookie module https://www.npmjs.com/package/ngx-cookie-service
+
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io'; //Socket IO https://www.npmjs.com/package/ngx-socket-io
+
+const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
 
 @NgModule({
   declarations: [
@@ -19,7 +23,10 @@ import { CookieService } from 'ngx-cookie-service'; //Cookie module
     SegnalaComponent
   ],
   imports: [
-    BrowserModule, NgbModule, HttpClientModule
+    BrowserModule,
+    NgbModule,
+    HttpClientModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [ CookieService ],
   bootstrap: [AppComponent]

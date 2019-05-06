@@ -9,7 +9,12 @@ import { CookieService } from 'ngx-cookie-service';  //Cookie module
 })
 export class SegnalaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cookieService: CookieService) { }
+
+  segnala(Num: HTMLInputElement, Desc: HTMLInputElement):boolean{
+    console.log(this.cookieService.get('ID'));
+    return false;
+  }
 
   ngOnInit() {
   }
