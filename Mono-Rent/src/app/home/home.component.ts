@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   data: Object;
   o :Observable<Object>;
   log: boolean = false;
+  mess: string;
 
    constructor(public http: HttpClient, private cookieService: CookieService) {
      if(this.cookieService.get('ID') != undefined){
@@ -42,16 +43,21 @@ export class HomeComponent implements OnInit {
 
     login(Usr: HTMLInputElement, Pass: HTMLInputElement): boolean {
       this.http
-        .post(' ',
+        .post('http://node22.codenvy.io:59074/utente',
           JSON.stringify({
-            Usr: Usr,
-            Pass: Pass
+            usr: Usr,
+            pass: Pass
           })
         )
         .subscribe(data => {
           this.data = data;
-          this.cookieService.set("ID", this.data[0].ID);
-          this.log=true;
+          if(this.data[0].autorizzazione == "OK"){
+            this.cookieService.set("ID", this.data[0].ID[0].ID);
+            this.log=true;
+          }else{
+            this.mess="Username o Password errati";
+          }
+
         });
         return false;
     }
