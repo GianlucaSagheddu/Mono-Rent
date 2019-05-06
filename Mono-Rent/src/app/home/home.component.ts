@@ -12,8 +12,13 @@ import { CookieService } from 'ngx-cookie-service';  //Cookie module
 export class HomeComponent implements OnInit {
   data: Object;
   o :Observable<Object>;
+  log: boolean = false;
 
-   constructor(public http: HttpClient, private cookieService: CookieService) {}
+   constructor(public http: HttpClient, private cookieService: CookieService) {
+     if(this.cookieService.get('ID') != undefined){
+       this.log=true;
+     }
+   }
 
    signin(Nome: HTMLInputElement, Cognome: HTMLInputElement, Usr: HTMLInputElement, Pass: HTMLInputElement, DataN: HTMLInputElement): boolean {
 
@@ -36,7 +41,6 @@ export class HomeComponent implements OnInit {
 
 
     login(Usr: HTMLInputElement, Pass: HTMLInputElement): boolean {
-
       this.http
         .post(' ',
           JSON.stringify({
@@ -47,8 +51,15 @@ export class HomeComponent implements OnInit {
         .subscribe(data => {
           this.data = data;
           this.cookieService.set("ID", this.data[0].ID);
+          this.log=true;
         });
         return false;
+    }
+
+    logout():boolean{
+      this.cookieService.delete('ID');
+      this.log = false;
+      return false;
     }
 
   ngOnInit() {

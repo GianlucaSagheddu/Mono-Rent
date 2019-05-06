@@ -1,2 +1,3 @@
-<app-home></app-home>
-<app-noleggio></app-noleggio>
+<button *ngIf="log==true" (click)="logout()">Esci</button>
+<app-home *ngIf="log==false"></app-home>
+<app-noleggio *ngIf="log==true"></app-noleggio>
