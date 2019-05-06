@@ -12,12 +12,12 @@ import { CookieService } from 'ngx-cookie-service';  //Cookie module
 export class HomeComponent implements OnInit {
   data: Object;
   o :Observable<Object>;
-  log: boolean = false;
+  //log: boolean = false;
   mess: string;
 
    constructor(public http: HttpClient, private cookieService: CookieService) {
      if(this.cookieService.get('ID') != undefined){
-       this.log=true;
+       //this.log=true;
      }
    }
 
@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
 
     login(Usr: HTMLInputElement, Pass: HTMLInputElement): boolean {
       this.http
-        .post('http://node22.codenvy.io:59074/utente',
+        .post('https://node22.codenvy.io:59074/utente',
           JSON.stringify({
             usr: Usr,
             pass: Pass
@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
           this.data = data;
           if(this.data[0].autorizzazione == "OK"){
             this.cookieService.set("ID", this.data[0].ID[0].ID);
-            this.log=true;
+            //this.log=true;
           }else{
             this.mess="Username o Password errati";
           }
@@ -64,7 +64,7 @@ export class HomeComponent implements OnInit {
 
     logout():boolean{
       this.cookieService.delete('ID');
-      this.log = false;
+      //this.log = false;
       return false;
     }
 

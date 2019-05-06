@@ -11,9 +11,9 @@ import { SegnalaComponent } from './segnala/segnala.component';
 
 import { CookieService } from 'ngx-cookie-service'; //Cookie module https://www.npmjs.com/package/ngx-cookie-service
 
-import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io'; //Socket IO https://www.npmjs.com/package/ngx-socket-io
+//import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io'; //Socket IO https://www.npmjs.com/package/ngx-socket-io
 
-const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
+//const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
     BrowserModule,
     NgbModule,
     HttpClientModule,
-    SocketIoModule.forRoot(config)
+    //SocketIoModule.forRoot(config)
   ],
   providers: [ CookieService ],
   bootstrap: [AppComponent]
