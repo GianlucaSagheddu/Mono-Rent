@@ -6,12 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NoleggioComponent } from './noleggio/noleggio.component';
+import { SegnalaComponent } from './segnala/segnala.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NoleggioComponent
+    NoleggioComponent,
+    SegnalaComponent
   ],
   imports: [
     BrowserModule, NgbModule, HttpClientModule

@@ -31,6 +31,8 @@ export class HomeComponent implements OnInit {
         });
         return false;
     }
+
+    
     login(Usr: HTMLInputElement, Pass: HTMLInputElement): boolean {
 
       this.http
