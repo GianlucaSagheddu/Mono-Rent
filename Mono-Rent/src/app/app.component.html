@@ -1,38 +1,42 @@
 <div class="container login-container">
     <div class="row">
         <div class="col-md-6 login-form-1">
-            <h3>Login for Form 1</h3>
+            <h3>Login</h3>
             <form>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Your Email *" value="" />
+                    <input type="text" class="form-control" placeholder="Your Username" value="" name="Usr" #Usr/>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Your Password *" value="" />
+                    <input type="password" class="form-control" placeholder="Your Password *" value="" name ="Pass" #Pass/>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btnSubmit" value="Login" />
+                    <button type="submit" class="btnSubmit" (click)="login(Usr, Pass)">Login</button>
                 </div>
-                <div class="form-group">
-                    <a href="#" class="ForgetPwd">Forget Password?</a>
-                </div>
+
             </form>
         </div>
         <div class="col-md-6 login-form-2">
-            <h3>Login for Form 2</h3>
+            <h3>Registrazione</h3>
             <form>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Your Email *" value="" />
+                    <input type="text" class="form-control" placeholder="Your name" value="" #Nome/>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Your Password *" value="" />
+                    <input type="text" class="form-control" placeholder="Your Surname" value="" #Cognome/>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btnSubmit" value="Login" />
+                    <input type="text" class="form-control" placeholder="Your Username" value="" #UsrR/>
                 </div>
                 <div class="form-group">
-
-                    <a href="#" class="ForgetPwd" value="Login">Forget Password?</a>
+                    <input type="password" class="form-control" placeholder="Your Password *" value="" #PassR/>
                 </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" placeholder="" value="" #DataN/>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btnSubmit" (click)="login(Nome, Cognome, UsrR, PassR, DataN)">Signin</button>
+                </div>
+                
             </form>
         </div>
     </div>
