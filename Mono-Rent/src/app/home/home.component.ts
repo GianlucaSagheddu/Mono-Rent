@@ -22,9 +22,9 @@ export class HomeComponent implements OnInit {
    }
 
    signin(Nome: HTMLInputElement, Cognome: HTMLInputElement, Usr: HTMLInputElement, Pass: HTMLInputElement, DataN: HTMLInputElement): boolean {
-
+     
       this.http
-        .post(' ',
+        .post('https://3000-d670e502-c231-409e-b2f8-68e3b042a9da.ws-eu0.gitpod.io/regutente',
           JSON.stringify({
             Nome: Nome,
             Cognome:Cognome,
@@ -42,15 +42,17 @@ export class HomeComponent implements OnInit {
 
 
     login(Usr: HTMLInputElement, Pass: HTMLInputElement): boolean {
+      console.log(Usr.value +" "+ Pass.value);
       this.http
         .post('https://3000-d670e502-c231-409e-b2f8-68e3b042a9da.ws-eu0.gitpod.io/utente',
           JSON.stringify({
-            usr: Usr,
-            pass: Pass
+            usr: Usr.value,
+            pass: Pass.value
           })
         )
         .subscribe(data => {
           this.data = data;
+          console.log(this.data);
           if(this.data[0].autorizzazione == "OK"){
             this.cookieService.set("ID", this.data[0].ID[0].ID);
             //this.log=true;
