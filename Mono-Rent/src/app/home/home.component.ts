@@ -125,6 +125,7 @@ export class HomeComponent implements OnInit {
             console.log(this.data);
             if(this.data[0].autorizzazione == "OK"){
               this.cookieService.set("ID", this.data[0].ID[0].ID);
+              window.location.reload();
               //this.log=true;
             }else{
               this.mess="Username o Password errati";
@@ -136,11 +137,7 @@ export class HomeComponent implements OnInit {
         return false;
     }
 
-    logout():boolean{
-      this.cookieService.delete('ID');
-      //this.log = false;
-      return false;
-    }
+
 
   ngOnInit() {
   }

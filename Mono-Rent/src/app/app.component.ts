@@ -12,7 +12,16 @@ export class AppComponent {
   title = 'Mono-Rent';
   log: boolean = false;
 
-  /*login():boolean{
-    return false;
-  }*/
+  constructor(private cookieService: CookieService){
+    console.log(this.cookieService.get('ID'));
+    if(this.cookieService.get('ID') != ""){
+      this.log = true;
+    }
+  }
+
+  logout():boolean{
+    this.cookieService.delete('ID');
+    this.log = false;
+    return true;
+  }
 }
