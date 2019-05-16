@@ -11,8 +11,8 @@ import { CookieService } from 'ngx-cookie-service';  //Cookie module
 export class AppComponent {
   title = 'Mono-Rent';
   log: boolean = false;
-  
-  login():boolean{
+
+  /*login():boolean{
     return false;
-  }
+  }*/
 }
