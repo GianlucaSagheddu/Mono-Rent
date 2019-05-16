@@ -13,7 +13,7 @@ export class AppComponent {
   log: boolean = false;
 
   constructor(private cookieService: CookieService){
-    console.log(this.cookieService.get('ID'));
+    
     if(this.cookieService.get('ID') != ""){
       this.log = true;
     }
