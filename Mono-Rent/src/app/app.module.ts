@@ -9,7 +9,8 @@ import { NoleggioComponent } from './noleggio/noleggio.component';
 import { SegnalaComponent } from './segnala/segnala.component';
 
 
-import { CookieService } from 'ngx-cookie-service'; //Cookie module https://www.npmjs.com/package/ngx-cookie-service
+import { CookieService } from 'ngx-cookie-service';
+import { ScooteringComponent } from './scootering/scootering.component'; //Cookie module https://www.npmjs.com/package/ngx-cookie-service
 
 //import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io'; //Socket IO https://www.npmjs.com/package/ngx-socket-io
 
@@ -20,7 +21,8 @@ import { CookieService } from 'ngx-cookie-service'; //Cookie module https://www.
     AppComponent,
     HomeComponent,
     NoleggioComponent,
-    SegnalaComponent
+    SegnalaComponent,
+    ScooteringComponent
   ],
   imports: [
     BrowserModule,
