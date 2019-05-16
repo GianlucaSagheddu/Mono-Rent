@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { CookieService } from 'ngx-cookie-service';  //Cookie module
@@ -22,11 +22,11 @@ export class HomeComponent implements OnInit {
    }
 
    signin(Nome: HTMLInputElement, Cognome: HTMLInputElement, Usr: HTMLInputElement, Pass: HTMLInputElement, DataN: HTMLInputElement): boolean {
-     
-      this.http
+
+      /* this.http
         .post('https://3000-d670e502-c231-409e-b2f8-68e3b042a9da.ws-eu0.gitpod.io/regutente',
           JSON.stringify({
-            Nome: Nome,
+            Nome: Nome.value,
             Cognome:Cognome,
             Usr: Usr,
             Pass: Pass,
@@ -36,6 +36,40 @@ export class HomeComponent implements OnInit {
         .subscribe(data => {
           this.data = data;
 
+        });*/
+
+
+        const headers = new HttpHeaders({
+          'Content-Type': 'application/x-www-form-urlencoded'
+
+        });
+
+
+        const params = new HttpParams()
+          .set('Nome', Nome.value)
+          .set('Cognome', Cognome.value)
+          .set('Usr', Usr.value)
+          .set('Pass', Pass.value)
+          .set('DataN', DataN.value);
+
+          const options = {
+          headers,
+          params,
+          withCredentials: false
+        };
+
+        var parameter = JSON.stringify({ Nome: Nome.value,
+            Cognome:Cognome.value,
+            Usr: Usr.value,
+            Pass: Pass.value,
+            DataN: DataN.value
+        });
+
+        this.http.post('https://3000-d670e502-c231-409e-b2f8-68e3b042a9da.ws-eu0.gitpod.io/regutente',null, options  )
+          .subscribe(data => {
+            this.data = data;
+
+
         });
         return false;
     }
@@ -43,7 +77,7 @@ export class HomeComponent implements OnInit {
 
     login(Usr: HTMLInputElement, Pass: HTMLInputElement): boolean {
       console.log(Usr.value +" "+ Pass.value);
-      this.http
+      /*this.http
         .post('https://3000-d670e502-c231-409e-b2f8-68e3b042a9da.ws-eu0.gitpod.io/utente',
           JSON.stringify({
             usr: Usr.value,
@@ -60,7 +94,45 @@ export class HomeComponent implements OnInit {
             this.mess="Username o Password errati";
           }
 
+        });*/
+
+
+        const headers = new HttpHeaders({
+          'Content-Type': 'application/x-www-form-urlencoded'
+
         });
+
+
+        const params = new HttpParams()
+          .set('usr', Usr.value)
+          .set('pass', Pass.value);
+
+
+        const options = {
+          headers,
+          params,
+          withCredentials: false
+        };
+
+        var parameter = JSON.stringify({
+            usr: Usr.value,
+            pass: Pass.value
+        });
+
+        this.http.post('https://3000-d670e502-c231-409e-b2f8-68e3b042a9da.ws-eu0.gitpod.io/utente',null, options  )
+          .subscribe(data => {
+            this.data = data;
+            console.log(this.data);
+            if(this.data[0].autorizzazione == "OK"){
+              this.cookieService.set("ID", this.data[0].ID[0].ID);
+              //this.log=true;
+            }else{
+              this.mess="Username o Password errati";
+            }
+
+
+        });
+
         return false;
     }
 
