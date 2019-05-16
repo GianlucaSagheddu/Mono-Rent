@@ -25,7 +25,7 @@ export class ScooteringComponent implements OnInit {
     this.o = this.http.get<Offerta[]>('https://3000-d670e502-c231-409e-b2f8-68e3b042a9da.ws-eu0.gitpod.io/visuOff');
       this.o.subscribe(data => {
           for(var i = 0; i < data.length; i++){
-            this.Offerte.push(new Offerta(data[i].Nome, data[i].Cognome, data[i].Indirizzo, data[i].Telefono, data[i].Email, data[i].Data, data[i].Ora));
+            this.Offerte.push(new Offerta(data[i].IdProponente, data[i].IdPartecipante, data[i].Id, data[i].Percorso, data[i].Data));
 
             }
 
