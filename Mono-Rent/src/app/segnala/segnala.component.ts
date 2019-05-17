@@ -13,7 +13,7 @@ import { CookieService } from 'ngx-cookie-service';  //Cookie module
 export class SegnalaComponent implements OnInit {
   data: Object;
   o :Observable<Object>;
-  
+
   mess: string;
   constructor(public http: HttpClient, private cookieService: CookieService) { }
 
