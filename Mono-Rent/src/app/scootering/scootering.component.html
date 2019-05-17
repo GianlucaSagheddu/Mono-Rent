@@ -10,3 +10,18 @@
 <br>
 <br>
 <button (click)="carica()">Carica offerte</button>
+<div>
+  <div class="card" *ngFor="let off of Offerte">
+    <div class="card-header">
+      Offerta n {{ off.Id }}
+    </div>
+    <div class="card-body">
+      Inizio: {{ off.Percorso.geometry[0].coordinates[0] }} <br>
+      Fine: {{ off.Percorso.geometry[0].coordinates[1] }} <br>
+      Data: {{ off.Data }}
+    </div>
+    <div class="card-footer">
+      <button (click)="partecipa(off.Id)">Partecipa</button>
+    </div>
+  </div>
+</div>

@@ -61,7 +61,7 @@ export class ScooteringComponent implements OnInit {
           for(var i = 0; i < data.length; i++){
             this.Offerte.push(new Offerta(data[i].IdProponente, data[i].IdPartecipante, data[i].Id, data[i].Percorso, data[i].Data));
 
-            }
+          }
 
         });
 
