@@ -11,12 +11,17 @@ import { CookieService } from 'ngx-cookie-service';  //Cookie module
 export class AppComponent {
   title = 'Mono-Rent';
   log: boolean = false;
+  Vpage: string = "noleggio";
 
   constructor(private cookieService: CookieService){
-    
+
     if(this.cookieService.get('ID') != ""){
       this.log = true;
     }
+  }
+
+  pagina(Vpage: string){
+    this.Vpage = Vpage;
   }
 
   logout():boolean{

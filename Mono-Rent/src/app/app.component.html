@@ -1,15 +1,23 @@
-<button *ngIf="log==true" (click)="logout()" class="btn btn-danger">Esci</button>
+<nav class="navbar navbar-default" *ngIf="log==true">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">MonoRent</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a (click)="pagina('noleggio')">Noleggio</a></li>
+      <li><a (click)="pagina('segnala')">Segnala</a></li>
+      <li><a (click)="pagina('scootering')">Scootering</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a *ngIf="log==true" (click)="logout()" class="btn btn-default">Esci</a></li>
+    </ul>
+  </div>
+</nav>
+
 <app-home *ngIf="log==false"></app-home>
-<br>
-<br>
-<app-noleggio *ngIf="log==true"></app-noleggio>
-<br>
-<br>
-<br>
-<br>
-<app-segnala *ngIf="log==true"></app-segnala>
-<br>
-<br>
-<br>
-<br>
-<app-scootering *ngIf="log==true"></app-scootering>
+
+<app-noleggio *ngIf="log==true && Vpage=='noleggio'"></app-noleggio>
+
+<app-segnala *ngIf="log==true && Vpage=='segnala'"></app-segnala>
+
+<app-scootering *ngIf="log==true && Vpage=='scootering'"></app-scootering>

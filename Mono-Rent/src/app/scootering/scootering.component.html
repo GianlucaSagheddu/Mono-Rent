@@ -2,12 +2,12 @@
   <div class="container form-group">
     <!--<button (click)=""> Offri </button> -->
     <h3>Scootering</h3>
-    <input type="number" class="form-control" #num><br>
-    <input type="number" class="form-control" #LatI><br>
-    <input type="number" class="form-control" #LongI><br>
-    <input type="number" class="form-control" #LatF><br>
-    <input type="number" class="form-control" #LongF><br>
-    <input type="date" class="form-control" #Data><br>
+    <input type="number" class="form-control" placeholder="numero monopattino" #num><br>
+    <input type="number" class="form-control" placeholder="latitudine inizio" #LatI><br>
+    <input type="number" class="form-control" placeholder="longitudine inizio" #LongI><br>
+    <input type="number" class="form-control" placeholder="latitudine fine" #LatF><br>
+    <input type="number" class="form-control" placeholder="longitudine fine" #LongF><br>
+    <input type="date" class="form-control" placeholder="data del giro" #Data><br>
     <button (click) = "offri(LatI, LongI, LatF, LongF, Data)" class="btn btn-success">Invia</button>
     <br>
     <br>
