@@ -1,27 +1,32 @@
-<!--<button (click)=""> Offri </button> -->
-<input type="number" #num><br>
-<input type="number" #LatI><br>
-<input type="number" #LongI><br>
-<input type="number" #LatF><br>
-<input type="number" #LongF><br>
-<input type="date" #Data><br>
-<button (click) = "offri(LatI, LongI, LatF, LongF, Data)">Invia</button>
-<br>
-<br>
-<br>
-<button (click)="carica()">Carica offerte</button>
-<div>
-  <div class="card" *ngFor="let off of Offerte">
-    <div class="card-header">
-      Offerta n {{ off.Id }}
-    </div>
-    <div class="card-body">
-      Inizio: {{ off.Percorso.geometry[0].coordinates[0] }} <br>
-      Fine: {{ off.Percorso.geometry[0].coordinates[1] }} <br>
-      Data: {{ off.Data }}
-    </div>
-    <div class="card-footer">
-      <button (click)="partecipa(off.Id)">Partecipa</button>
+<div class="container">
+  <div class="container form-group">
+    <!--<button (click)=""> Offri </button> -->
+    <h3>Scootering</h3>
+    <input type="number" class="form-control" #num><br>
+    <input type="number" class="form-control" #LatI><br>
+    <input type="number" class="form-control" #LongI><br>
+    <input type="number" class="form-control" #LatF><br>
+    <input type="number" class="form-control" #LongF><br>
+    <input type="date" class="form-control" #Data><br>
+    <button (click) = "offri(LatI, LongI, LatF, LongF, Data)" class="btn btn-success">Invia</button>
+    <br>
+    <br>
+    <br>
+    <button (click)="carica()" class="btn btn-success">Carica offerte</button>
+  </div>
+  <div class="container">
+    <div class="card" *ngFor="let off of Offerte">
+      <div class="card-header">
+        Offerta n {{ off.Id }}
+      </div>
+      <div class="card-body">
+        Inizio: {{ off.Percorso.geometry[0].coordinates[0] }} <br>
+        Fine: {{ off.Percorso.geometry[0].coordinates[1] }} <br>
+        Data: {{ off.Data }}
+      </div>
+      <div class="card-footer">
+        <button (click)="partecipa(off.Id)">Partecipa</button>
+      </div>
     </div>
   </div>
 </div>

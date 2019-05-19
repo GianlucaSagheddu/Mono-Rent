@@ -1,7 +1,9 @@
-<form>
-  <div>
-    <input type="number" placeholder="Inserisci numero monopattino o scooter" #Num><br>
-    <textarea type="text" placeholder="Descrizione problema" #Desc></textarea><br>
-    <button (click)="segnala(Num, Desc)">Segnala</button><br>
-  </div>
-</form>
+<div class="container">
+  <form>
+    <div class="form-group">
+      <input type="number" placeholder="Inserisci numero monopattino o scooter" class="form-control" #Num><br>
+      <textarea type="text" placeholder="Descrizione problema" class="form-control" #Desc></textarea><br>
+      <button (click)="segnala(Num, Desc)" class="btn btn-danger">Segnala</button><br>
+    </div>
+  </form>
+</div>
