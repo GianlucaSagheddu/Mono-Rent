@@ -12,9 +12,13 @@
     <br>
     <br>
     <br>
-    <button (click)="carica()" class="btn btn-success">Carica offerte</button>
+
   </div>
+  <br>
+  <br>
   <div class="container">
+    <h3>Offerte scootering</h3>
+    <button (click)="carica()" class="btn btn-success">Carica offerte</button>
     <div class="card" *ngFor="let off of Offerte">
       <div class="card-header">
         Offerta n {{ off.Id }}
