@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { NoleggioComponent } from './noleggio/noleggio.component';
 import { SegnalaComponent } from './segnala/segnala.component';
 
-
+import { AgmCoreModule } from '@agm/core';
 import { CookieService } from 'ngx-cookie-service';
 import { ScooteringComponent } from './scootering/scootering.component'; //Cookie module https://www.npmjs.com/package/ngx-cookie-service
 
@@ -28,6 +28,9 @@ import { ScooteringComponent } from './scootering/scootering.component'; //Cooki
     BrowserModule,
     NgbModule,
     HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCzUI8LYmnHPyFrtRT8Q8IEREZfOygUl-U'
+    })
     //SocketIoModule.forRoot(config)
   ],
   providers: [ CookieService ],

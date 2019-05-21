@@ -4,6 +4,9 @@ import { HttpClient, HttpHeaders, HttpParams  } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { CookieService } from 'ngx-cookie-service';  //Cookie module
+import { Monopattino } from './Monopattino.model';
+
+
 
 @Component({
   selector: 'app-noleggio',
@@ -13,14 +16,28 @@ import { CookieService } from 'ngx-cookie-service';  //Cookie module
 export class NoleggioComponent implements OnInit {
   data: Object;
   o :Observable<Object>;
+  Mono: Array<Monopattino>= [];
   //log: boolean = false;
   mess: string="";
   nol: boolean =false;
+
+  lat: number = 51.678418;
+  lng: number = 7.809007;
 
   constructor(public http: HttpClient, private cookieService: CookieService) {
     if(this.cookieService.get('Nol') != ""){
       this.nol=true;
     }
+    /*this.o = this.http.get('https://3000-d670e502-c231-409e-b2f8-68e3b042a9da.ws-eu0.gitpod.io/visuMezzi');
+    this.o.subscribe(data => {
+        for(var i = 0; i < data.lenght; i++){
+          this.Mono.push(new Monopattino(data[i].ID, data[i].Tipo, data[i].Coord, data[i].Stato));
+
+        }
+
+    });*/
+    //this.Mono.push(new Monopattino(1, "monopattino", {geometry: {coordinates:[55.11, 13.3]}}, true));
+    //this.Mono.push(new Monopattino(1, "monopattino", {geometry: {coordinates:[23.11, 45.3]}}, true));
   }
 
   noleggia(numero: HTMLInputElement): boolean{
