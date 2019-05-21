@@ -1,3 +1,15 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- necessaria per le mappe e per la ricerca dei luoghi di interesse -->
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCzUI8LYmnHPyFrtRT8Q8IEREZfOygUl-U"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    
+  });
+</script>
+<style>
+  .classMap { height: 200px }
+</style>
 <div class="container">
   <h3>Noleggio</h3>
   <form>
@@ -12,3 +24,4 @@
   {{ mess }}
   <button *ngIf="nol" (click)="Blocca()"> Blocca Monopattino </button>
 </div>
+<div class="col-sm-8 classMap" id="map"></div>
