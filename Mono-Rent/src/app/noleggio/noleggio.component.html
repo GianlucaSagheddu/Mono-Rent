@@ -29,5 +29,5 @@
 </div>
 <!-- <div class="col-sm-8 classMap" id="map"></div> -->
 <agm-map [latitude]="lat" [longitude]="lng">
-  <agm-marker *ngFor="let M of Mono" [latitude]="M.Coord.geometry.coordinates[0]" [longitude]="M.Coord.geometry.coordinates[0]"></agm-marker>
+  <agm-marker *ngFor="let M of Mono" [latitude]="M.Coord.geometry.coordinates[0]" [longitude]="M.Coord.geometry.coordinates[1]"></agm-marker>
 </agm-map>
