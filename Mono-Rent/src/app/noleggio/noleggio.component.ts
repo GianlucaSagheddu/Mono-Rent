@@ -48,15 +48,17 @@ export class NoleggioComponent implements OnInit {
 
 
     const params = new HttpParams()
-      .set('idMezzo', numero.value);
-
+      .set('idMezzo', numero.value)
+      .set('idUtente', this.cookieService.get('ID'))
+      .set('Lat', "22")
+      .set('Long', "22"); //coordinate andranno prese dalla geolocalizzazione
       const options = {
       headers,
       params,
       withCredentials: false
     };
 
-    var parameter = JSON.stringify({ idMezzo: numero.value  });
+    var parameter = JSON.stringify({ idMezzo: numero.value, idUtente: this.cookieService.get('ID'), Lat: 22, Long: 22 });
 
     this.http.post('https://3000-d670e502-c231-409e-b2f8-68e3b042a9da.ws-eu0.gitpod.io/noleggiaM',null, options  )
       .subscribe(data => {
@@ -81,15 +83,17 @@ export class NoleggioComponent implements OnInit {
 
 
     const params = new HttpParams()
-      .set('idMezzo', this.cookieService.get('Nol'));
-
+      .set('idMezzo', this.cookieService.get('Nol'))
+      .set('idUtente', this.cookieService.get('ID'))
+      .set('Lat', "33")
+      .set('Long', "33"); //coordinate andranno prese dalla geolocalizzazione
       const options = {
       headers,
       params,
       withCredentials: false
     };
 
-    var parameter = JSON.stringify({ idMezzo: this.cookieService.get('Nol')  });
+    var parameter = JSON.stringify({ idMezzo: this.cookieService.get('Nol'), idUtente: this.cookieService.get('ID'), Lat: 33, Long: 33 });
 
     this.http.post('https://3000-d670e502-c231-409e-b2f8-68e3b042a9da.ws-eu0.gitpod.io/BloccaM',null, options  )
       .subscribe(data => {
