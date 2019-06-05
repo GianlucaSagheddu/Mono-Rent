@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
 
   mess: string;
 
+  messr: string;
+
    constructor(public http: HttpClient, private cookieService: CookieService) {
 
    }
@@ -65,7 +67,10 @@ export class HomeComponent implements OnInit {
 
         this.http.post('https://3000-d670e502-c231-409e-b2f8-68e3b042a9da.ws-eu0.gitpod.io/regutente',null, options  )
           .subscribe(data => {
-            this.data = data;
+            this.data=data;
+            if(data.mess=="OK"){
+              this.messr="registato";
+            }
 
 
         });
